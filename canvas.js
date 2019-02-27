@@ -1,4 +1,4 @@
-function initCanvas(cb) {
+function initCanvas(cb, fullScreen = false) {
     // Grab canvas & 2d context.
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext("2d");
@@ -10,8 +10,10 @@ function initCanvas(cb) {
     let paused = false;
 
     const updateCanvasSize = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        if (fullScreen) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
     }
 
     // Ensure that the canvas dimensions are updated when window is resized.
